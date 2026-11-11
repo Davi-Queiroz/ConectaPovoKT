@@ -1,5 +1,8 @@
 package davi.github.com.conectapovokt.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 enum class Categoria(val rotulo: String) {
     BURACO("Buraco"),
     ILUMINACAO("Iluminação"),
@@ -13,7 +16,6 @@ enum class Status(val rotulo: String) {
     EM_ANDAMENTO("Em andamento"),
     RESOLVIDA("Resolvida");
 
-    /** Próximo passo do acompanhamento; Resolvida volta a Aberta (reabrir). */
     fun proximo(): Status = when (this) {
         ABERTA -> EM_ANDAMENTO
         EM_ANDAMENTO -> RESOLVIDA
@@ -21,8 +23,9 @@ enum class Status(val rotulo: String) {
     }
 }
 
+@Entity(tableName = "ocorrencias")
 data class Ocorrencia(
-    val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val titulo: String,
     val descricao: String,
     val categoria: Categoria,
