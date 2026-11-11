@@ -80,7 +80,7 @@ Requisitos: Android Studio recente, JDK 21 (o JDK embutido do Android Studio ser
 
 O fluxo principal é: **registrar um problema, acompanhar na lista e atualizar o status**.
 
-### 1. Lista vazia (estado inicial)
+### 1. Tela Inicial
 
 ![Lista vazia](docs/prints/06-home.png)
 
